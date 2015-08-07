@@ -1,0 +1,37 @@
+{
+    "manifest_version": 2,
+    "name": "Voat theme injector",
+    "description": "a crude google chrome extension to inject stuff to voat.co",
+    "version": "1.0.1",
+    "author": "EIREXE based off xero harrison",
+    "permissions": [
+        "tabs",
+        "<all_urls>",
+        "storage",
+        "http://*/*",
+        "https://*/*"
+    ],
+    "icons": { 
+        "16": "voatti-16.png",
+        "48": "voatti-48.png",
+        "128": "voatti-128.png" 
+    },
+	"browser_action": {
+		"default_icon": "preview.png",
+		"default_popup": "popup.html",
+		"default_title": "Voat theme injector"
+	},
+    "content_scripts": [ 
+        { 
+            "all_frames": false, 
+            "js": [ "js/start.js"], 
+            "matches": [ 
+                "*://*.voat.co/*"
+            ],
+            "run_at": "document_start" 
+        } 
+    ],
+    "web_accessible_resources": [
+        "js/start.js"
+    ]
+}
